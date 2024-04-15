@@ -1,0 +1,71 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Restaurant</title>
+    <script type="text/javascript" src="/eel.js"></script>
+    <style>
+        body {
+            background-image: url('robot_background.jpg'); /* Add your robot-themed background image in the 'web' directory */
+            background-size: cover;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-right: 50px; /* Move buttons a bit to the right */
+        }
+        button {
+            font-size: 16px;
+            padding: 10px;
+            width: 150px; /* Increased button width for better visibility */
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        .welcome {
+            text-align: right;
+            color: white;
+            font-size: 24px; /* Larger font size */
+            margin-right: 50px; /* Add some right margin */
+        }
+        .emoji {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="runCommand('go_to_kitchen')">Go to Kitchen</button>
+        <button onclick="runCommand('wait')">Wait</button>
+        <button onclick="runCommand('go_docking')">Go (Docking Station)</button>
+        <button onclick="runCommand('kangriboque')">Kangriboque</button>
+        <button onclick="runCommand('mantalai')">Mantalai</button>
+        <button onclick="runCommand('sentinel')">Sentinel</button>
+    </div>
+    <div class="welcome">
+        Welcome to Robot Restaurant<br>
+        <img src="hi.gif" alt="Robot Animation" class="emoji"> <!-- Replace the emoji with your animated gif -->
+    </div>
+
+    <script>
+        function runCommand(command) {
+            eel.run_command(command)(function(response) {
+                alert(response); // Display the Python response as an alert, or update the UI as needed
+            });
+        }
+    </script>
+</body>
+</html>
